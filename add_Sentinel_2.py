@@ -20,7 +20,7 @@
 # Para a maioria dos scripts EE, as importações abaixo devem ser feitas no terminal Python do QGIS.
 Import ee
 from ee_plugin import Map
-# Deposi disso as funções .Map podem ser usadas do mesmo modo que são implementadas no editor de código do GEE.
+# Depois disso as funções .Map podem ser usadas do mesmo modo que são implementadas no editor de código do GEE.
 
 col = ee.ImageCollection("COPERNICUS/S2_SR")\
 .filterBounds(Map.getCenter())\
