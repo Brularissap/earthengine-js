@@ -1,26 +1,5 @@
-#==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-
-# Este arquivo python diz respeito a busca por imagens
-# Sentinel 2 da coleção ee.ImageCollection("COPERNICUS/S2_SR"), presente no GEE.
-# Essa busca ocorre dentro do QGIS,através do terminal python e utilizando o plugin Google Earth Engine.
-
-# O que acontece?
-
-# Os códigos deste arquivo irão consultar o Earth Engine em busca das imagens de acordo com o que esta sendo filtrado
-# da coleção. Se encontrar alguma imagem ela será adicionada como uma camada no QGIS e poderá ser visualizada.
-# Algumas condições foram impostas, uma delas é que se não houver imagem para a data solicitada e com percentual de
-# cobertura de nuvem menor que 10% logo aparecerá no terminal a seguinte mensagem:
-# NÃO TEM IMAGEM.
-# Deste modo, basta voce alterar as datas ou o percentual de nuvem.
-# E necessário centralizar bem, em um basemap, a sua área de interesse antes de rodar o arquivo no terminal.
-
-#==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-
-
-# Para a maioria dos scripts EE, as importações abaixo devem ser feitas no terminal Python do QGIS.
-Import ee
-from ee_plugin import Map
-# Depois disso as funções .Map podem ser usadas do mesmo modo que são implementadas no editor de código do GEE.
+import ee
+from ee_plugin import Map 
 
 col = ee.ImageCollection("COPERNICUS/S2_SR")\
 .filterBounds(Map.getCenter())\
@@ -66,9 +45,6 @@ else:
 
     Map.addLayer(col_0,style, data_col_0)
  
-#==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-#Recomendações:
-# Analise o código com calma.
-# Altere as datas, o percentual de cobertura de nuvem, perceba o que cada linha de código esta fazendo.
-# Pratique.
-#==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+    
+    
